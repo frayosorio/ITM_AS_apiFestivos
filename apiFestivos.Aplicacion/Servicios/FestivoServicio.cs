@@ -115,9 +115,13 @@ namespace apiFestivos.Aplicacion.Servicios
 
         public async Task<IEnumerable<FechaFestivo>> ObtenerAño(int Año)
         {
+            // Consulta todos los datos de la bd entidad festivo
             var festivos = await repositorio.ObtenerTodos();
 
+            // Lista de respuesta de esta funcion
             List<FechaFestivo> fechaFestivos = new List<FechaFestivo>();
+
+
             foreach (var festivo in festivos)
             {
                 fechaFestivos.Add(ObtenerFestivo(Año, festivo));
